@@ -2,9 +2,10 @@
 from PIL import Image
 import os
 
-image = input("enter file directory of image: ")
+imageFile = input("enter file directory of image: ")
+imageDir = os.path.dirname(os.path.abspath(imageFile))
 
-im = Image.open(image)
+im = Image.open(imageFile)
 im1 = im.convert("L")
 img_size = (im1.size)
 width = img_size[0]
@@ -22,10 +23,10 @@ if img_size[0] > 600 or img_size[1] > 1000:
 ac = ["@", "#", "$", "%", "?", "*", "+", ";", ":", ",", "."]
 im2list = list(im1.getdata())
 
-with open(f"doodled_{os.path.basename(image)}.txt", "w") as file:
+with open(f"{imageDir}\doodled_{os.path.basename(imageFile)}.txt", "w") as file:
     file.write("")
 
-with open(f"doodled_{os.path.basename(image)}.txt", "a") as file:
+with open(f"{imageDir}\doodled_{os.path.basename(imageFile)}.txt", "a") as file:
     for index, val in enumerate(im2list):
         if index%(width) == 0:
             file.write("\n")
