@@ -1,4 +1,3 @@
-# @#&%0
 from PIL import Image
 import os
 
@@ -23,32 +22,32 @@ if img_size[0] > 600 or img_size[1] > 1000:
 ac = ["@", "#", "$", "%", "?", "*", "+", ";", ":", ",", "."]
 im2list = list(im1.getdata())
 
-with open(f"{imageDir}\doodled_{os.path.basename(imageFile)}.txt", "w") as file:
-    file.write("")
-
-with open(f"{imageDir}\doodled_{os.path.basename(imageFile)}.txt", "a") as file:
-    for index, val in enumerate(im2list):
-        if index%(width) == 0:
-            file.write("\n")
-        if val <= 23:
-            file.write(ac[-1])
-        elif val <= 46:
-            file.write(ac[-2])
-        elif val <= 69:
-            file.write(ac[-3])
-        elif val <= 92:
-            file.write(ac[-4])
-        elif val <= 115:
-            file.write(ac[-5])
-        elif val <= 138:
-            file.write(ac[-6])
-        elif val <= 161:
-            file.write(ac[-7])
-        elif val <= 184:
-            file.write(ac[-8])
-        elif val <= 207:
-            file.write(ac[-9])
-        elif val <= 230:
-            file.write(ac[-10])
-        else:
-            file.write(ac[-11])
+if f"{imageDir}\doodled_{os.path.basename(imageFile)}.txt":
+    print("doodled file already exists!")
+else:
+    with open(f"{imageDir}\doodled_{os.path.basename(imageFile)}.txt", "a") as file:
+        for index, val in enumerate(im2list):
+            if index%(width) == 0:
+                file.write("\n")
+            if val <= 23:
+                file.write(ac[1-1])
+            elif val <= 46:
+                file.write(ac[2-1])
+            elif val <= 69:
+                file.write(ac[3-1])
+            elif val <= 92:
+                file.write(ac[4-1])
+            elif val <= 115:
+                file.write(ac[5-1])
+            elif val <= 138:
+                file.write(ac[6-1])
+            elif val <= 161:
+                file.write(ac[7-1])
+            elif val <= 184:
+                file.write(ac[8-1])
+            elif val <= 207:
+                file.write(ac[9-1])
+            elif val <= 230:
+                file.write(ac[10-1])
+            else:
+                file.write(ac[11-1])
