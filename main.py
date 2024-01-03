@@ -1,10 +1,11 @@
 from PIL import Image
 import os
 
-imageFile = input("enter file directory of image: ")
-imageDir = os.path.dirname(os.path.abspath(imageFile))
+imageAddress = input("enter file directory of image: ")
+imageFile = os.path.basename(imageAddress)
+imageDir = os.path.dirname(os.path.abspath(imageAddress))
 
-im = Image.open(imageFile)
+im = Image.open(imageAddress)
 im1 = im.convert("L")
 img_size = (im1.size)
 width = img_size[0]
@@ -21,11 +22,10 @@ if img_size[0] > 600 or img_size[1] > 1000:
 
 ac = ["@", "#", "$", "%", "?", "*", "+", ";", ":", ",", "."]
 im2list = list(im1.getdata())
-
-if f"{imageDir}\doodled_{os.path.basename(imageFile)}.txt":
+if os.path.exists(f"{imageDir}\doodled_{imageFile}.txt"):
     print("doodled file already exists!")
 else:
-    with open(f"{imageDir}\doodled_{os.path.basename(imageFile)}.txt", "a") as file:
+    with open(f"{imageDir}\doodled_{imageFile}.txt", "a") as file:
         for index, val in enumerate(im2list):
             if index%(width) == 0:
                 file.write("\n")
