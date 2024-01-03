@@ -1,7 +1,5 @@
-requirements: 
-  PIL
-
-Use:
-    1.)Enter the directory of an image
-    2.)A file named doodled<name_of_file>.txt will be created
-    3.)Done!
+inputs image directory;
+using PIL turns image to black and white
+makes a list of every pixel
+use a specific ascii character based on the darkness of the pixel
+makes a .txt file on the same directory as the image file
